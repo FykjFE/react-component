@@ -1,6 +1,10 @@
 import React from "react";
 import "./style/button.scss";
 
-export const Button: React.FC = (props) => {
-  return <button>{props.children}</button>;
+interface ButtonProps {
+  onClick?: () => void;
+}
+
+export const Button: React.FC<ButtonProps> = (props) => {
+  return <button onClick={props.onClick}>{props.children}</button>;
 };

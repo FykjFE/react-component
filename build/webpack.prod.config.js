@@ -12,19 +12,5 @@ module.exports = merge(base, {
     libraryTarget: "umd",
     libraryExport: "default",
   },
-  externals: {
-    // 定义外部依赖，避免把react和react-dom打包进去
-    react: {
-      root: "React",
-      commonjs2: "react",
-      commonjs: "react",
-      amd: "react",
-    },
-    "react-dom": {
-      root: "ReactDOM",
-      commonjs2: "react-dom",
-      commonjs: "react-dom",
-      amd: "react-dom",
-    },
-  },
+  externals: ["react", "react-dom"],
 });

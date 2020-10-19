@@ -16,14 +16,14 @@
   },
   "license": "MIT",
   "author": "zzf",
-  "main": "src/index.tsx",
+  "main": "lib/index.js",
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack-dev-server --config build/webpack.dev.config.js --colors",
     "build": "cross-env NODE_ENV=production webpack  --config build/webpack.prod.config.js",
-    "lint": "eslint src/**/*.{tsx,ts}",
-    "lint:fix": "eslint --fix src/**/*.{tsx,ts,js}",
-    "lint:style": "stylelint --config .stylelintrc.js --fix src/**/*.scss",
-    "prettier": "prettier --write src/**/*.{tsx,ts}"
+    "lint": "eslint components/**/*.{tsx,ts}",
+    "lint:fix": "eslint --fix components/**/*.{tsx,ts,js}",
+    "lint:style": "stylelint --config .stylelintrc.js --fix components/**/*.scss",
+    "prettier": "prettier --write components/**/*.{tsx,ts}"
   },
   "husky": {
     "hooks": {
