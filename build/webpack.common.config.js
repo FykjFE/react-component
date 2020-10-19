@@ -16,34 +16,9 @@ module.exports = {
         // include: path.resolve(__dirname, "../src"),
       },
       {
-        test: scssModuleRegex,
-        include: path.resolve(__dirname, "../src"),
-        use: [
-          {
-            loader: isDev ? "style-loader" : MiniCssExtractPlugin.loader,
-          },
-          {
-            loader: "css-loader",
-            options: {
-              importLoaders: 1,
-              modules: {
-                exportLocalsConvention: "camelCaseOnly",
-              },
-              sourceMap: isDev,
-            },
-          },
-          {
-            loader: "sass-loader",
-            options: {
-              sourceMap: isDev,
-            },
-          },
-        ],
-      },
-      {
         test: scssRegex,
         exclude: scssModuleRegex,
-        include: path.resolve(__dirname, "../src"),
+        include: path.resolve(__dirname, "../components"),
         use: [
           {
             loader: isDev ? "style-loader" : MiniCssExtractPlugin.loader,
@@ -76,7 +51,11 @@ module.exports = {
       },
     ],
   },
-  plugins: [],
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: "main.min.css",
+    }),
+  ],
   resolve: {
     extensions: [".tsx", "scss", ".ts", ".js"],
     plugins: [
