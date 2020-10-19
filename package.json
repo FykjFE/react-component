@@ -20,7 +20,6 @@
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack-dev-server --config build/webpack.dev.config.js --colors",
     "build": "cross-env NODE_ENV=production webpack  --config build/webpack.prod.config.js",
-    "build:test": "cross-env NODE_ENV=test webpack  --config build/webpack.prod.config.js",
     "lint": "eslint src/**/*.{tsx,ts}",
     "lint:fix": "eslint --fix src/**/*.{tsx,ts,js}",
     "lint:style": "stylelint --config .stylelintrc.js --fix src/**/*.scss",

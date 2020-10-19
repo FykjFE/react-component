@@ -1,19 +1,18 @@
-const { merge } = require('webpack-merge');
-const path = require('path');
-const base = require('./webpack.common.config');
-const CopyPlugin = require('copy-webpack-plugin');
-const TerserPlugin = require('terser-webpack-plugin');
-const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
-const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { merge } = require("webpack-merge");
+const path = require("path");
+const base = require("./webpack.common.config");
+const TerserPlugin = require("terser-webpack-plugin");
+const HardSourceWebpackPlugin = require("hard-source-webpack-plugin");
+const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = merge(base, {
-  mode: 'production',
+  mode: "production",
   devtool: false,
   bail: true,
   plugins: [
     new OptimizeCssAssetsPlugin({
-      cssProcessor: require('cssnano'),
+      cssProcessor: require("cssnano"),
       cssProcessorOptions: {
         map: false,
         discardComments: {
@@ -21,26 +20,14 @@ module.exports = merge(base, {
         },
       },
       cssProcessorPluginOptions: {
-        preset: ['default', { minifyFontValues: { removeQuotes: false } }],
+        preset: ["default", { minifyFontValues: { removeQuotes: false } }],
       },
     }),
     new MiniCssExtractPlugin({
-      filename: 'static/css/[name].[contenthash:8].css',
-      chunkFilename: 'static/css/[contenthash:8].chunk.css',
+      filename: "static/css/[name].[contenthash:8].css",
+      chunkFilename: "static/css/[contenthash:8].chunk.css",
     }),
     new HardSourceWebpackPlugin(),
-    new CopyPlugin({
-      patterns: [
-        {
-          from: path.resolve(__dirname, '../public'),
-          to: path.resolve(__dirname, '../build'),
-          toType: 'dir',
-          globOptions: {
-            ignore: ['index.html'],
-          },
-        },
-      ],
-    }),
   ],
   optimization: {
     minimize: true,
@@ -58,14 +45,14 @@ module.exports = merge(base, {
             warnings: false,
             comparisons: false,
             inline: 2,
-            pure_funcs: ['console.log'],
+            pure_funcs: ["console.log"],
           },
         },
         sourceMap: false,
       }),
     ],
     splitChunks: {
-      chunks: 'all',
+      chunks: "all",
       name: false,
       maxInitialRequests: Infinity,
       minSize: 0,
@@ -75,10 +62,12 @@ module.exports = merge(base, {
           name(module) {
             // get the name. E.g. node_modules/packageName/not/this/part.js
             // or node_modules/packageName
-            const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1];
+            const packageName = module.context.match(
+              /[\\/]node_modules[\\/](.*?)([\\/]|$)/
+            )[1];
 
             // npm package names are URL-safe, but some servers don't like @ symbols
-            return `npm.${packageName.replace('@', '')}`;
+            return `npm.${packageName.replace("@", "")}`;
           },
         },
       },
