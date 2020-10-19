@@ -20,6 +20,7 @@
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack-dev-server --config build/webpack.dev.config.js --colors",
     "build": "cross-env NODE_ENV=production webpack  --config build/webpack.prod.config.js",
+    "build:rollup": "rollup -c",
     "lint": "eslint components/**/*.{tsx,ts}",
     "lint:fix": "eslint --fix components/**/*.{tsx,ts,js}",
     "lint:style": "stylelint --config .stylelintrc.js --fix components/**/*.scss",
@@ -89,6 +90,7 @@
     "prettier": "^2.1.1",
     "react-is": "^16.13.1",
     "react-styleguidist": "^11.1.0",
+    "rollup": "^2.32.0",
     "sass-loader": "^10.0.2",
     "style-loader": "^1.2.1",
     "stylelint": "^13.7.1",
