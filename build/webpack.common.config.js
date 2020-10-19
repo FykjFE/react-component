@@ -11,9 +11,8 @@ module.exports = {
     index: path.resolve(__dirname, "../examples/index.js"),
   },
   output: {
-    publicPath: "/",
     path: path.resolve(__dirname, "../lib"),
-    filename: `bul.js`,
+    filename: `bundle.js`,
     libraryTarget: "umd",
   },
   module: {
