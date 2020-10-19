@@ -9,8 +9,7 @@ module.exports = merge(base, {
   output: {
     path: path.resolve(__dirname, "../lib/"),
     filename: "index.js",
-    libraryTarget: "umd",
-    libraryExport: "default",
+    libraryTarget: "commonjs2",
   },
   externals: ["react", "react-dom"],
 });
