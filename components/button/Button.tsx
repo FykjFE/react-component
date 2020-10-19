@@ -1,4 +1,4 @@
 import React from "react";
-export function Button() {
-  return <button>1</button>;
-}
+export const Button: React.FC = (props) => {
+  return <button>{props.children}</button>;
+};
