@@ -1,5 +1,5 @@
 import React from "react";
-import "./style/select.scss";
+import "./style/image.scss";
 
 interface ImageProps {
   src: string;
