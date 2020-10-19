@@ -65,5 +65,4 @@ module.exports = {
     ],
   },
   optimization: {},
-  externals: {},
 };
