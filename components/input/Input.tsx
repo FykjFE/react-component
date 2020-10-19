@@ -6,5 +6,5 @@ interface InputProps {
 }
 
 export const Input: React.FC<InputProps> = ({src}) => {
-  return <input src={src}/>;
+  return  <input/>;
 };
