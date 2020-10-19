@@ -92,7 +92,7 @@ export { default as Result } from './result';
 
 export { default as Row } from './row';
 
-export { default as Select } from './select';
+export { default as Image } from './select';
 
 export { default as Skeleton } from './skeleton';
 

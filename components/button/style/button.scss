@@ -1,13 +1,20 @@
+@import "../../style";
 button{
   width: 270px;
   height: 40px;
   border-width: 0;
   border-radius: 3px;
-  background: #1E90FF;
+  background: $primary-color--1;
   cursor: pointer;
   outline: none;
-  font-family: Microsoft YaHei;
   color: white;
   font-size: 17px;
-
+  transition: .1s;
+  &:hover{
+    background: $primary-color--2;
+  }
+  &:active{
+    background: $primary-color--3;
+    box-shadow: 0 0 10px $primary-color--1;
+  }
 }
