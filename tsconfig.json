@@ -10,7 +10,7 @@
     "noImplicitAny": true,
     "strictNullChecks": true,
     "moduleResolution": "node",
-    "baseUrl": "./src",
+    "baseUrl": "./components",
     "paths": {
       //      "pages": ["pages/*"],
       //      "assets": ["assets/*"],

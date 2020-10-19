@@ -18,13 +18,13 @@ module.exports = merge(common, {
     quiet: true,
     noInfo: true,
     stats: "errors-only",
-    host: "0.0.0.0",
+    host: "localhost",
     disableHostCheck: true,
   },
   devtool: "source-map",
   plugins: [
     new HtmlWebpackPlugin({
-      filename: path.resolve(__dirname, "../build/index.html"),
+      filename: path.resolve(__dirname, "../examples/index.html"),
       template: path.resolve(__dirname, "../examples/index.html"),
       cache: false,
       inject: true,

@@ -13,7 +13,7 @@ module.exports = {
   output: {
     publicPath: "/",
     path: path.resolve(__dirname, "../lib"),
-    filename: `static/js/[name]${isDev ? "" : ".[contenthash:8]"}.chunk.js`,
+    filename: `bul.js`,
     libraryTarget: "umd",
   },
   module: {
