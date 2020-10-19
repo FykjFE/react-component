@@ -4,4 +4,4 @@ import { Button } from "../components/button/Button";
 import("../lib/index").then((res) => {
   console.log(res);
 });
-ReactDOM.render(<Button>测2试</Button>, document.getElementById("root"));
+ReactDOM.render(<Button>测试</Button>, document.getElementById("root"));
