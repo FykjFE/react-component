@@ -1,18 +1,18 @@
 {
-  "name": "bot-react",
+  "name": "react-component",
   "version": "1.0.0",
-  "description": "react 脚手架",
+  "description": "react-ui库",
   "keywords": [
     "react",
-    "cli"
+    "ui"
   ],
-  "homepage": "https://github.com/FykjFE/bot-react#readme",
+  "homepage": "https://github.com/FykjFE/react-component#readme",
   "bugs": {
-    "url": "https://github.com/FykjFE/bot-react/issues"
+    "url": "https://github.com/FykjFE/react-component/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/FykjFE/bot-react.git"
+    "url": "git+https://github.com/FykjFE/react-component.git"
   },
   "license": "MIT",
   "author": "zzf",
