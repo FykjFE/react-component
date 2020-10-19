@@ -1,79 +1,30 @@
-const { merge } = require("webpack-merge");
 const path = require("path");
+const { merge } = require("webpack-merge");
 const base = require("./webpack.common.config");
-const TerserPlugin = require("terser-webpack-plugin");
-const HardSourceWebpackPlugin = require("hard-source-webpack-plugin");
-const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = merge(base, {
   mode: "production",
   devtool: false,
-  bail: true,
-  plugins: [
-    new OptimizeCssAssetsPlugin({
-      cssProcessor: require("cssnano"),
-      cssProcessorOptions: {
-        map: false,
-        discardComments: {
-          removeAll: true,
-        },
-      },
-      cssProcessorPluginOptions: {
-        preset: ["default", { minifyFontValues: { removeQuotes: false } }],
-      },
-    }),
-    new MiniCssExtractPlugin({
-      filename: "static/css/[name].[contenthash:8].css",
-      chunkFilename: "static/css/[contenthash:8].chunk.css",
-    }),
-    new HardSourceWebpackPlugin(),
-  ],
-  optimization: {
-    minimize: true,
-    minimizer: [
-      new TerserPlugin({
-        parallel: true,
-        extractComments: false,
-        terserOptions: {
-          mangle: true,
-          parse: { ecma: 8 },
-          compress: {
-            drop_console: true,
-            drop_debugger: true,
-            ecma: 5,
-            warnings: false,
-            comparisons: false,
-            inline: 2,
-            pure_funcs: ["console.log"],
-          },
-        },
-        sourceMap: false,
-      }),
-    ],
-    splitChunks: {
-      chunks: "all",
-      name: false,
-      maxInitialRequests: Infinity,
-      minSize: 0,
-      cacheGroups: {
-        vendor: {
-          test: /[\\/]node_modules[\\/]/,
-          name(module) {
-            // get the name. E.g. node_modules/packageName/not/this/part.js
-            // or node_modules/packageName
-            const packageName = module.context.match(
-              /[\\/]node_modules[\\/](.*?)([\\/]|$)/
-            )[1];
-
-            // npm package names are URL-safe, but some servers don't like @ symbols
-            return `npm.${packageName.replace("@", "")}`;
-          },
-        },
-      },
+  entry: path.resolve(__dirname, "../components/index.tsx"),
+  output: {
+    path: path.resolve(__dirname, "../lib/"),
+    filename: "index.js",
+    libraryTarget: "umd",
+    libraryExport: "default",
+  },
+  externals: {
+    // 定义外部依赖，避免把react和react-dom打包进去
+    react: {
+      root: "React",
+      commonjs2: "react",
+      commonjs: "react",
+      amd: "react",
     },
-    runtimeChunk: {
-      name: (entrypoint) => `runtime~${entrypoint.name}`,
+    "react-dom": {
+      root: "ReactDOM",
+      commonjs2: "react-dom",
+      commonjs: "react-dom",
+      amd: "react-dom",
     },
   },
 });

@@ -1,12 +1,18 @@
 const path = require("path");
 const { merge } = require("webpack-merge");
 const common = require("./webpack.common.config");
-const FriendlyErrorsWebpackPlugin = require("friendly-errors-webpack-plugin");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = merge(common, {
   mode: "development",
+  entry: {
+    index: path.resolve(__dirname, "../examples/index.js"),
+  },
+  output: {
+    path: path.resolve(__dirname, "../examples/"),
+    filename: `bundle.js`,
+  },
   devServer: {
+    contentBase: path.resolve(__dirname, "../examples/"),
     hot: true,
     hotOnly: true,
     open: false,
@@ -22,30 +28,5 @@ module.exports = merge(common, {
     disableHostCheck: true,
   },
   devtool: "source-map",
-  plugins: [
-    new HtmlWebpackPlugin({
-      filename: path.resolve(__dirname, "../lib/index.html"),
-      template: path.resolve(__dirname, "../examples/index.html"),
-      cache: false,
-      inject: true,
-      minify: {
-        removeComments: true,
-        collapseWhitespace: true,
-        removeRedundantAttributes: true,
-        useShortDoctype: true,
-        removeEmptyAttributes: true,
-        removeStyleLinkTypeAttributes: true,
-        keepClosingSlash: true,
-        minifyJS: true,
-        minifyCSS: true,
-        minifyURLs: true,
-      },
-    }),
-    new FriendlyErrorsWebpackPlugin({
-      compilationSuccessInfo: {
-        messages: ["http://localhost:3000"],
-      },
-      clearConsole: true,
-    }),
-  ],
+  plugins: [],
 });

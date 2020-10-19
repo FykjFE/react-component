@@ -7,14 +7,6 @@ const scssRegex = /\.(scss)$/;
 const scssModuleRegex = /\.module\.(scss)$/;
 
 module.exports = {
-  entry: {
-    index: path.resolve(__dirname, "../examples/index.js"),
-  },
-  output: {
-    path: path.resolve(__dirname, "../lib"),
-    filename: `bundle.js`,
-    libraryTarget: "umd",
-  },
   module: {
     rules: [
       {
