@@ -24,9 +24,16 @@ export const Button: React.FC<ButtonProps> = (props) => {
         return 'md';
     }
   }
+  function getType() {
+    if (props.disabled) {
+      return '';
+    } else {
+      return `fy-btn-${props.type ?? 'default'}`;
+    }
+  }
   return (
     <button
-      className={classNames('fy-btn', {
+      className={classNames('fy-btn', `${getType()}`, {
         [`fy-btn-${getSize(props.size)}`]: true,
       })}
       disabled={props.disabled}

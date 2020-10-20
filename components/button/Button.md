@@ -5,7 +5,7 @@ Button 按钮:
 ```jsx
 
 <Button type={'primary'}>primary</Button>
-<Button type={'default'}>测试</Button>
+<Button>测试</Button>
 ```
 
 **按钮大小**

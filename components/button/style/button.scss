@@ -4,20 +4,10 @@
   width: auto;
   border-width: 0;
   border-radius: 3px;
-  background: $primary-color--1;
+
   cursor: pointer;
   outline: none;
-  color: white;
   transition: .1s;
-
-  &:hover {
-    background: $primary-color--2;
-  }
-
-  &:active {
-    background: $primary-color--3;
-    box-shadow: 0 0 10px $primary-color--1;
-  }
 
   &:disabled {
     background: #f5f5f5;
@@ -35,6 +25,32 @@
 
   &-lg {
     height: 40px;
+  }
+  &-primary{
+    background: $primary-color--1;
+    color: white;
+    &:hover {
+      background: $primary-color--2;
+    }
+
+    &:active {
+      background: $primary-color--3;
+      box-shadow: 0 0 10px $primary-color--1;
+    }
+  }
+  &-default{
+    background: #fff;
+    color: rgba(0,0,0,.2);
+    border: 1px solid rgba(0,0,0,.2);
+    &:hover {
+      color:$primary-color--4;
+      border: 1px solid $primary-color--4;
+    }
+
+    &:active {
+      color:$primary-color--3;
+      box-shadow: 0 0 5px $primary-color--3;
+    }
   }
 }
 .fy-btn+.fy-btn{
