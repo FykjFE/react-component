@@ -4,7 +4,8 @@
     "module": "umd",
     "allowJs": true,
     "jsx": "react",
-    "declaration": false,
+    "declaration": true,
+    "declarationDir": "./lib",
     "downlevelIteration": true,
     "strict": true,
     "noImplicitAny": true,
@@ -12,11 +13,9 @@
     "moduleResolution": "node",
     "baseUrl": "./components",
     "paths": {
-      //      "pages": ["pages/*"],
-      //      "assets": ["assets/*"],
-      //      "styles": ["styles/*"],
-      //      "component": ["component/*"],
-      //      "router": ["router/*"]
+      "component": [
+        "component/*"
+      ]
     },
     "types": [
       "node",
