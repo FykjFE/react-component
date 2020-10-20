@@ -4,8 +4,8 @@ $primary-color--3:#91d5ff;
 $primary-color--4:#bae7ff;
 $primary-color--5:#e6f7ff;
 $prefix:fy;
-$font-size--1:12px;
-$font-size--2:14px;
+$font-size--sm:12px;
+$font-size--:14px;
 @function getPrefixName($name) {
 @return $prefix - $name;
 }
