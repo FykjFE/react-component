@@ -14,6 +14,10 @@ interface ButtonProps {
 }
 
 export const Button: React.FC<ButtonProps> = (props) => {
+  /**
+   * 获取按钮大小class
+   * @param size
+   */
   function getSize(size: string): string {
     switch (size) {
       case 'large':
@@ -24,6 +28,9 @@ export const Button: React.FC<ButtonProps> = (props) => {
         return 'md';
     }
   }
+  /**
+   * 获取按钮类型class
+   */
   function getType() {
     if (props.disabled) {
       return '';
