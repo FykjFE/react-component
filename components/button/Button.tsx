@@ -2,7 +2,7 @@ import React from 'react';
 import './style/button.scss';
 import classNames from 'classnames';
 
-interface ButtonProps {
+export interface ButtonProps {
   /** 点击事件 */
   onClick?: (event: any) => void;
   /** 按钮类型 */

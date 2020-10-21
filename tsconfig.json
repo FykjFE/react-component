@@ -14,7 +14,7 @@
     "baseUrl": "./components",
     "paths": {
       "component": [
-        "component/*"
+        "components/*"
       ]
     },
     "types": [
