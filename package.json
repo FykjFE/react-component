@@ -1,10 +1,13 @@
 {
   "name": "react-component",
   "version": "1.0.0",
+  "private": false,
   "description": "react-ui库",
   "keywords": [
     "react",
-    "ui"
+    "ui",
+    "component",
+    "typescript"
   ],
   "homepage": "https://github.com/FykjFE/react-component#readme",
   "bugs": {
@@ -17,6 +20,11 @@
   "license": "MIT",
   "author": "zzf",
   "main": "lib/index.js",
+  "module": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib"
+  ],
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack-dev-server --config build/webpack.dev.config.js --colors",
     "build": "cross-env NODE_ENV=production webpack  --config build/webpack.prod.config.js",
@@ -27,8 +35,6 @@
     "prettier": "prettier --write components/**/*.{tsx,ts}",
     "coveralls": "styleguidist server",
     "test": "styleguidist server",
-    "styleguide": "styleguidist server",
-    "styleguide:build": "styleguidist build",
     "storybook": "start-storybook -p 6006 --no-dll",
     "build-storybook": "build-storybook"
   },
@@ -67,6 +73,7 @@
     "@storybook/addon-essentials": "^6.0.26",
     "@storybook/addon-links": "^6.0.26",
     "@storybook/react": "^6.0.26",
+    "@types/jest": "^26.0.15",
     "@types/node": "^14.10.1",
     "@types/react": "^16.9.49",
     "@types/react-dom": "^16.9.8",
@@ -87,6 +94,7 @@
     "file-loader": "^6.1.0",
     "hard-source-webpack-plugin": "^0.13.1",
     "husky": "^4.3.0",
+    "jest": "^26.6.0",
     "lint-staged": "^10.3.0",
     "mini-css-extract-plugin": "^0.11.2",
     "node-sass": "^4.14.1",
@@ -94,7 +102,6 @@
     "prettier": "^2.1.1",
     "react-docgen-typescript": "^1.20.5",
     "react-is": "^17.0.0",
-    "react-styleguidist": "^11.1.0",
     "sass-loader": "^10.0.2",
     "style-loader": "^1.2.1",
     "stylelint": "^13.7.1",

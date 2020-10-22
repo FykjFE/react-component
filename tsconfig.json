@@ -24,6 +24,8 @@
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "include": ["components"],
+    "exclude": ["components/**/*.test.tsx", "components/**/*.stories.tsx"]
   }
 }

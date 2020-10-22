@@ -2,15 +2,17 @@ import React from 'react';
 import './style/button.scss';
 import classNames from 'classnames';
 
+export type ButtonSize = 'large' | 'default' | 'small';
+export type ButtonType = 'primary' | 'default';
 export interface ButtonProps {
   /** 点击事件 */
   onClick?: (event: any) => void;
   /** 按钮类型 */
-  type?: string;
+  type?: ButtonType;
   /** 按钮禁用 */
   disabled?: boolean;
   /** 按钮尺寸 */
-  size: string;
+  size?: ButtonSize;
 }
 
 export const Button: React.FC<ButtonProps> = (props) => {
@@ -18,8 +20,8 @@ export const Button: React.FC<ButtonProps> = (props) => {
    * 获取按钮大小class
    * @param size
    */
-  function getSize(size: string): string {
-    switch (size) {
+  function getSize(): string {
+    switch (props.size) {
       case 'large':
         return 'lg';
       case 'small':
@@ -41,7 +43,7 @@ export const Button: React.FC<ButtonProps> = (props) => {
   return (
     <button
       className={classNames('fy-btn', `${getType()}`, {
-        [`fy-btn-${getSize(props.size)}`]: true,
+        [`fy-btn-${getSize()}`]: true,
       })}
       disabled={props.disabled}
       onClick={props.onClick}
@@ -49,4 +51,9 @@ export const Button: React.FC<ButtonProps> = (props) => {
       {props.children}
     </button>
   );
+};
+Button.defaultProps = {
+  disabled: false,
+  size: 'default',
+  type: 'default',
 };
