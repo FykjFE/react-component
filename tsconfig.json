@@ -18,14 +18,13 @@
       ]
     },
     "types": [
+      "jest",
       "node",
       "webpack-env"
     ],
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "include": ["components"],
-    "exclude": ["components/**/*.test.tsx", "components/**/*.stories.tsx"]
+    "forceConsistentCasingInFileNames": true
   }
 }
