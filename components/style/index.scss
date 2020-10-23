@@ -6,6 +6,14 @@ $primary-color--5:#e6f7ff;
 $prefix:fy;
 $font-size--sm:12px;
 $font-size--:14px;
+.rc-position{
+  position: absolute;
+  z-index: 99;
+  background: #fff;
+}
+*{
+  box-sizing: border-box;
+}
 @function getPrefixName($name) {
 @return $prefix - $name;
 }
