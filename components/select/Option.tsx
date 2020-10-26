@@ -1,4 +1,5 @@
 import React from 'react';
+import classnames from 'classnames';
 
 export const Option: React.FC<any> = (props) => {
   const { label, value, handleSelect, data } = props;
@@ -6,7 +7,9 @@ export const Option: React.FC<any> = (props) => {
   return (
     <div
       onClick={() => handleSelect({ value, label })}
-      className={`${value === data.value ? 'rc-select-active' : ''}`}
+      className={classnames('rc-select-item-option', {
+        'rc-select-active': value === data.value,
+      })}
     >
       {label}
     </div>

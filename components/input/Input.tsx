@@ -10,5 +10,9 @@ export interface InputProps {
 
 export const Input: React.FC<InputProps> = (props) => {
   const { size } = props;
-  return <input className={classNames(`rc-input-${getSize(size)}`)} />;
+  return (
+    <>
+      <input className={classNames(`rc-input-${getSize(size)}`)} />
+    </>
+  );
 };

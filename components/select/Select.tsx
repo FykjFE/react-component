@@ -31,7 +31,6 @@ const Select: React.FC<any> = (props) => {
         <Position targetRef={inputRef}>
           {React.Children.map(props.children, (child) =>
             React.cloneElement(child, {
-              style: { width: '200px', border: '1px solid #ddd' },
               data: value,
               handleSelect,
             }),

@@ -1,3 +1,4 @@
+@import "../../style";
 .rc-select{
   &-active{
     background: #40a9ff;
@@ -12,5 +13,12 @@
     position: absolute;
     top: 0;
     left: 0;
+  }
+  &-item-option{
+    width: 100%;
+    cursor: pointer;
+    &:hover{
+      background: #eee;
+    }
   }
 }

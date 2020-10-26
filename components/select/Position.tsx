@@ -17,7 +17,7 @@ const Position: React.FC<any> = (props) => {
         top: document.documentElement.scrollTop + top + height + 10 + 'px',
         left: document.documentElement.scrollLeft + left + 'px',
       };
-
+      instance.style.width = `${getComputedStyle(targetRef.current).width}`;
       instance.style.top = style.top;
       instance.style.left = style.left;
       return { top, left, height };
