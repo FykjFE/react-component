@@ -1,55 +1,44 @@
 import React, { useEffect, useRef, useState } from 'react';
-import './style/select.scss';
+import Position from './Position';
 
-interface ButtonProps {
-  onClick?: () => void;
-}
+const Select: React.FC<any> = (props) => {
+  const { value, onChange } = props;
+  const [visible, setVisible] = useState(false);
+  const inputRef = useRef(null);
 
-export const Select: React.FC<ButtonProps> = (props) => {
-  const [isShow, setIsShow] = useState(false);
-  const iptRef = useRef(null);
-  function documentClickHandler() {
-    setIsShow(false);
+  function handleSelect(data: any) {
+    onChange(data);
+    setVisible(false);
   }
-  useEffect(() => {
-    window.addEventListener('click', documentClickHandler);
-    return () => {
-      window.removeEventListener('click', documentClickHandler);
-    };
-  }, []);
-  useEffect(() => {
-    let instance: HTMLDivElement;
-    if (document.querySelector('#picker')) {
-    } else {
-      instance = document.createElement('div');
-      instance.id = 'picker';
-      document.body.appendChild(instance);
+
+  function bindBodyClick(e: any) {
+    if (e.target !== inputRef.current) {
+      setVisible(false);
     }
+  }
+
+  useEffect(() => {
+    document.addEventListener('click', bindBodyClick, false);
     return () => {
-      if (instance) {
-        document.body.removeChild(instance);
-      }
+      document.removeEventListener('click', bindBodyClick, false);
     };
-  }, []);
+  }, [visible]);
+
   return (
-    <div className={'rc-select-wrap'}>
-      <input
-        style={{ width: '300px' }}
-        ref={iptRef}
-        onClick={(event) => {
-          event.stopPropagation();
-          setIsShow(true);
-        }}
-        type='text'
-      />
-      {isShow && (
-        <div
-          style={{ width: (iptRef.current as any).clientWidth }}
-          className={'rc-select-dropdown'}
-        >
-          1111
-        </div>
+    <>
+      <input value={value.value} onClick={() => setVisible(true)} ref={inputRef} />
+      {visible && (
+        <Position targetRef={inputRef}>
+          {React.Children.map(props.children, (child) =>
+            React.cloneElement(child, {
+              style: { width: '200px', border: '1px solid #ddd' },
+              data: value,
+              handleSelect,
+            }),
+          )}
+        </Position>
       )}
-    </div>
+    </>
   );
 };
+export { Select };

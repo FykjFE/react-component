@@ -2,8 +2,7 @@ import React, { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 let instance: any;
 const Position: React.FC<any> = (props) => {
-  const { targetRef, children, getContainer, onNotVisibleArea } = props;
-  const container = getContainer && getContainer();
+  const { targetRef, children } = props;
 
   if (!instance) {
     instance = document.createElement('div');
@@ -21,32 +20,10 @@ const Position: React.FC<any> = (props) => {
 
       instance.style.top = style.top;
       instance.style.left = style.left;
-
       return { top, left, height };
     }
 
     setInstanceStyle();
-
-    function handleScroll() {
-      const { top, height } = setInstanceStyle();
-
-      if (container.offsetTop > top) {
-        onNotVisibleArea();
-      }
-      if (top - container.offsetTop + height > container.offsetHeight) {
-        onNotVisibleArea();
-      }
-    }
-
-    if (container) {
-      container.addEventListener('scroll', handleScroll, false);
-    }
-
-    return () => {
-      if (container) {
-        container.removeEventListener('scroll', handleScroll, false);
-      }
-    };
   }, [targetRef]);
 
   return createPortal(children, instance);

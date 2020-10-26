@@ -1,4 +1,7 @@
 .rc-select{
+  &-active{
+    background: #40a9ff;
+  }
   &-wrap{
     position: relative;
   }
@@ -10,9 +13,4 @@
     top: 0;
     left: 0;
   }
-}
-.ll-position {
-  position: absolute;
-  z-index: 99;
-  background: #fff;
 }
