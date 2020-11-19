@@ -26,7 +26,7 @@ const Select: React.FC<any> = (props) => {
 
   return (
     <>
-      <input value={value.value} onClick={() => setVisible(true)} ref={inputRef} />
+      <input value={value.value} onClick={() => setVisible(!visible)} ref={inputRef} />
       {visible && (
         <Position targetRef={inputRef}>
           {React.Children.map(props.children, (child) =>

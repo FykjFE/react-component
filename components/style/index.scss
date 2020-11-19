@@ -12,6 +12,12 @@ $font-size--:14px;
   background: #fff;
   box-shadow: 0 0 5px #ddd;
 }
+.rc-message{
+  position: fixed;
+  top: 0;
+  text-align: center;
+  width: 100%;
+}
 *{
   box-sizing: border-box;
 }

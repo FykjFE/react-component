@@ -6,6 +6,7 @@
     "jsx": "react",
     "declaration": true,
     "declarationDir": "./lib",
+    "emitDeclarationOnly":true,
     "downlevelIteration": true,
     "strict": true,
     "noImplicitAny": true,
